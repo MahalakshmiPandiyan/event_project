@@ -1,0 +1,57 @@
+<div class="outer">
+    <div class="boder bg-secondary text-white w-50 p-4">
+        <form  #eventForm="ngForm">
+            <div class="form-group">
+                <label>Event Name</label>
+                <input type="text" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" minlength="3" name="name" [(ngModel)]="list.event_name"required> 
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Event Name is required</small>
+            </div>
+            <div class="form-group">
+                <label>Event Date</label>
+                <input type="date" #date="ngModel"  class="form-control" [class.is-invalid]="date.invalid && date.touched" name="date" [(ngModel)]="list.date" required> 
+                <small class="text-danger" [class.d-none]="date.valid || date.untouched">Date is required</small>
+            </div>
+            <div class="form-group">
+                <label>Event Timings</label>
+                <input type="text" #time="ngModel" class="form-control" [class.is-invalid]="time.invalid && time.touched" name="time" [(ngModel)]="list.time"required> 
+                <small class="text-danger" [class.d-none]="time.valid || time.untouched">Time is required</small>
+            </div>
+            <div class="form-group">
+                <label for="photo">Do you want Photography?</label>
+                <select name="photo" id="photo"  [(ngModel)]="list.photography" required>
+                    <option value="" hidden>Choose yes/no</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label for="role">Do you want Food?</label>
+                <select name="food" id="food" [(ngModel)]="list.food">
+                    <option value="" hidden>Choose yes/no</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="decoration">Do you want decoration?</label>
+                <select name="decoration" id="decoration" [(ngModel)]="list.decoration">
+                    <option value="" hidden>Choose yes/no</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+    
+            <div class="form-group" *ngIf="role!='user'">
+                <label>Event Organzier</label>
+                <input  type="text" #organizer="ngModel" class="form-control" [class.is-invalid]="organizer.invalid && organizer.touched" name="organizer" [(ngModel)]="list.organizer"required> 
+                <small class="text-danger" [class.d-none]="organizer.valid || organizer.untouched">organizer is required</small>
+            </div><br>
+
+            <button (click)="backButton()" type="submit" class="btn btn-primary">Back</button>
+            <button [disabled]="eventForm.form.invalid" (click)="tableDisplay()" class="submit btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="card-product">
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Event Name</th>
+            <th>Date</th>
+            <th>Timings</th>
+            <th>Food</th>
+            <th>Photography</th>
+            <th>Decoration</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let history of list">
+                <td>{{history.id}}</td>
+                <td>{{history.event_name}}</td>
+                <td>{{history.date}}</td>
+                <td>{{history.time}}</td>
+                <td>{{history.food}}</td>
+                <td>{{history.photography}}</td>
+                <td>{{history.decoration}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button class="back" (click)="back()">Back</button>
