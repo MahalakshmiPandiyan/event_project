@@ -3,22 +3,23 @@
         <form  #eventForm="ngForm">
             <div class="form-group">
                 <label>Event Name</label>
-                <input type="text" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" minlength="3" name="name" [(ngModel)]="list.event_name"required> 
-                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Event Name is required</small>
+                <input type="text" #event_name="ngModel" class="form-control" [class.is-invalid]="event_name.invalid && event_name.touched"  name="event_name" [(ngModel)]="list.event_name"required> 
+                <small class="text-danger" [class.d-none]="event_name.valid || event_name.untouched">Event Name is required</small>
             </div>
             <div class="form-group">
                 <label>Event Date</label>
-                <input type="date" #date="ngModel"  class="form-control" [class.is-invalid]="date.invalid && date.touched" name="date" [(ngModel)]="list.date" required> 
-                <small class="text-danger" [class.d-none]="date.valid || date.untouched">Date is required</small>
+                <!-- <input type="date" min="{{minDate}}"> -->
+                <input type="date" min="{{minDate}}" #event_date="ngModel"  class="form-control" [class.is-invalid]="event_date.invalid && event_date.touched" name="event_date" [(ngModel)]="list.event_date" required>
+                <small class="text-danger" [class.d-none]="event_date.valid || event_date.untouched">Date is required</small>
             </div>
             <div class="form-group">
                 <label>Event Timings</label>
-                <input type="text" #time="ngModel" class="form-control" [class.is-invalid]="time.invalid && time.touched" name="time" [(ngModel)]="list.time"required> 
-                <small class="text-danger" [class.d-none]="time.valid || time.untouched">Time is required</small>
+                <input type="text" #event_time="ngModel" class="form-control" [class.is-invalid]="event_time.invalid && event_time.touched" name="event_time" [(ngModel)]="list.event_time"required> 
+                <small class="text-danger" [class.d-none]="event_time.valid || event_time.untouched">Time is required</small>
             </div>
             <div class="form-group">
                 <label for="photo">Do you want Photography?</label>
-                <select name="photo" id="photo"  [(ngModel)]="list.photography" required>
+                <select name="photography" id="photo"  [(ngModel)]="list.photography" required>
                     <option value="" hidden>Choose yes/no</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
@@ -50,7 +51,7 @@
             </div><br>
 
             <button (click)="backButton()" type="submit" class="btn btn-primary">Back</button>
-            <button [disabled]="eventForm.form.invalid" (click)="tableDisplay()" class="submit btn btn-primary">Submit</button>
+            <button [disabled]="eventForm.form.invalid" (click)="tableDisplay(eventForm)" class="submit btn btn-primary">Submit</button>
 
         </form>
     </div>

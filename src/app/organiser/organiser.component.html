@@ -12,8 +12,8 @@
             <tr *ngFor="let history of list">
                 <td>{{history.id}}</td>
                 <td>{{history.event_name}}</td>
-                <td>{{history.date}}</td>
-                <td>{{history.time}}</td>
+                <td>{{history.event_date}}</td>
+                <td>{{history.event_time}}</td>
                 <td>{{history.organizer}}</td>
                 <td><button  class="btn btn-info"  [routerLink]="['/update-edit',history.id]">Edit</button></td>
             </tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { History } from '../history';
 import { HistoryService } from '../history.service';
@@ -10,9 +11,10 @@ import { UserService } from '../user.service';
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
+  minDate:any=''
   today = new Date().toLocaleDateString()
   list:History={
-    id: 0, event_name: '', date: '', time: '', food: '', photography: '', decoration: '',
+    id: 0, event_name: '', event_date: '', event_time: '', food: '', photography: '', decoration: '',
     organizer: ''
   }
   
@@ -21,6 +23,11 @@ export class EventComponent implements OnInit {
   role:string=''
 
   ngOnInit(): void {
+
+    
+   this.dateValidation();
+     
+    
     // console.log(this.today)
     this.role=this.userService.role;
     this.route.params.subscribe(params => {
@@ -41,7 +48,11 @@ export class EventComponent implements OnInit {
   backButton(){
     this.router.navigate(['/home'])
   }
-  tableDisplay() {
+  tableDisplay(eventForm:NgForm) {
+    this.history.postDetails(eventForm.value).subscribe((data)=>{
+      console.log(data);
+      
+    })
     if (this.list.id === 0) {
       //Create New User
       console.log("id : " + this.list.id);
@@ -57,6 +68,18 @@ export class EventComponent implements OnInit {
   }
 
   dateValidation(){
+    var date:any= new Date();
+     
+    var toDate:any=date.getDate();
+    if(toDate < 10){
+     toDate ="0"+ toDate;
+    }
+    var month=date.getMonth()+1;
+    if(month < 10){
+     month = '0'+month;
+    }
+    var year =date.getFullYear();
+    this.minDate= year+"-"+month+"-"+toDate;
     return true;
   }
 

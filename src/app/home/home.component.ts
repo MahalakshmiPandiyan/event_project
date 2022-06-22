@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   role:string=''
   ngOnInit(): void {
     this.role=this.userService.role;
+    console.log(this.role);
+    
   }
   venue(){
     this.router.navigate(['/venue']);

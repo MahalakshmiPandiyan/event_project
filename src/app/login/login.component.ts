@@ -9,8 +9,6 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
-
-
   constructor(private router:Router,private route: ActivatedRoute,private userService:UserService) { }
 
   name:string="maha";
@@ -19,20 +17,39 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   dashBoard(){
-    console.warn(this.userService.getRole(this.roleValue));
-    if(this.roleValue==='user')
-    {
-      console.log(this.roleValue);
-      this.router.navigate(['/home']);
-    }
-    if(this.roleValue==='admin')
-    {
-      console.log(this.roleValue);
-      this.router.navigate(['/home']);
-    }
+    this.userService.getDetails(this.name,this.passwordValue).subscribe((res)=>{
+      console.log(this.name);
+      
+      console.log("res : "+res);
+
+      if(res==true){
+        if(this.name!='lakshmi' && this.passwordValue!='Mahalakshmi1')
+        {
+          this.roleValue='user'
+          console.warn(this.userService.getRole(this.roleValue));
+          console.log(this.roleValue);
+          this.router.navigate(['/home']);
+        }
+        else
+        {
+          this.roleValue='admin'
+          console.warn(this.userService.getRole(this.roleValue));
+          console.log(this.roleValue);
+          this.router.navigate(['/home']);
+        }
+      }
+      else{
+        alert("Invalid Username or Password!!!!!!!")
+      }
+    });
+ 
+
     // else{
     //   this.router.navigate(['/dashboard']);
 
     // }
+  }
+  register(){
+      this.router.navigate(['/register']);
   }
 }

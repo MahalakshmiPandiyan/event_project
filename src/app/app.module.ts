@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { FeaturesComponent } from './features/features.component';
 import { EditComponent } from './edit/edit.component';
 import { OrganiserComponent } from './organiser/organiser.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { OrganiserComponent } from './organiser/organiser.component';
     VenueComponent,
     FeaturesComponent,
     EditComponent,
-    OrganiserComponent
+    OrganiserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

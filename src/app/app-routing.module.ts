@@ -6,6 +6,7 @@ import { FeaturesComponent } from './features/features.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { OrganiserComponent } from './organiser/organiser.component';
+import { RegisterComponent } from './register/register.component';
 import { TableComponent } from './table/table.component';
 import { VenueComponent } from './venue/venue.component';
 
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'update-add/:id',component:EditComponent},
   {path:'login',component:LoginComponent},
   {path:'organizer',component:OrganiserComponent},
-  {path:'update-edit/:id',component:EventComponent}
+  {path:'update-edit/:id',component:EventComponent},
+  {path:'register',component:RegisterComponent}
 
 ];
 

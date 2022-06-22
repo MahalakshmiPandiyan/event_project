@@ -1,6 +1,5 @@
-
 .login-div{
-    background-image: url('../../assets/images/pic3.jpg');
+    background-image: url('../../assets/images/pic1.jpg');
     height: 710px;
      width: 900px;
     background-position: center ;
@@ -10,9 +9,6 @@
     margin-top: 0px;
     width: 100%;
    
-}
-a:hover{
-    background-color: #000;
 }
 div{
     margin-top:25px;
@@ -30,7 +26,7 @@ label{
     margin-left: 10px;
     font-weight: bold;
     font-size: 20px;
-    color: gold
+    color: white
 }
 
 select{
@@ -41,15 +37,20 @@ select{
 h3{
     text-align: center;
     font-weight: bold;
-    color: gold;
+    color: black;
     margin: 0%;
     color: white;
 }
+a:hover{
+    background-color: gold;
+}
+
 button{
-    background-color: white;
     width: 25%;
     color: #000;
-    margin-left: 180px;
+    background-color: gold;
+    margin-left: 220px;
+    font-size: 20px;
 }
 .boder{
      background-color:rgb(86, 83, 83);
